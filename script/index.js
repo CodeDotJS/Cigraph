@@ -8,10 +8,10 @@ let addRecord = document.querySelector('#add');
 const barrierBeforeChart = (e) => {
     const count = gatherData.length;
     for (var i = 0; i < count; i++) {
-        if (gatherData[2].value > gatherData[1].value) {
+        if (parseInt(gatherData[2].value) > parseInt(gatherData[1].value)) {
             gatherData[2].value = '';
         }
-        if (gatherData[5].value > gatherData[4].value) {
+        if (parseInt(gatherData[5].value) > parseInt(gatherData[4].value)) {
             gatherData[5].value = '';
         }
         if (gatherData[i].value.length === 0) {
