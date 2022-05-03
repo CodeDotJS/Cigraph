@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&display=swap');
+
 /* Scrollbar */
 
 * {
     scrollbar-color: #7253ed #ffacff;
     scrollbar-width: thin;
     box-sizing: border-box;
-    font-family: 'Alegreya';
+    font-family: 'Alegreya', serif;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
