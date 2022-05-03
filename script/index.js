@@ -5,13 +5,17 @@ const checkNegative = e => {
 let gatherData = document.getElementsByName('record[]')
 let addRecord = document.querySelector('#add');
 
+const stringToNumber = n => {
+    return parseInt(n);
+};
+
 const barrierBeforeChart = (e) => {
     const count = gatherData.length;
     for (var i = 0; i < count; i++) {
-        if (parseInt(gatherData[2].value) > parseInt(gatherData[1].value)) {
+        if (stringTo(gatherData[2].value) > stringTo(gatherData[1].value)) {
             gatherData[2].value = '';
         }
-        if (parseInt(gatherData[5].value) > parseInt(gatherData[4].value)) {
+        if (stringTo(gatherData[5].value) > stringTo(gatherData[4].value)) {
             gatherData[5].value = '';
         }
         if (gatherData[i].value.length === 0) {
