@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Cigraph | Days of Smoke</title>
+    <script src="script/chart.min.js"></script>
+</head>
+
+<body>
+    <!-- First Container -->
+    <div class="container">
+        <div class="intro-container">
+            <h1>Cigraph</h1>
+            <p>Days Spent Smoking!</p>
+            <a href="#questions">CHECK YOURS</a>
+        </div>
+        <div class="intro-image">
+            <img class="banner" src="media/man-smoke.png" alt="">
+            <div class="footer">CREATED BY &nbsp;<a href="https://rishi.ml/">RISHI GIRI</a></div>
+        </div>
+    </div>
+    <!-- Second Container -->
+    <div class="survey" id="questions">
+        <div class="survey-container">
+            <div class="flex-input"><label for="username">What's your name?</label>
+                <input name="record[]" type="text" name="username" id="username" required></div>
+            <div class="flex-input"><label for="userage">How old are you?</label>
+                <input name="record[]" type="number" oninput="checkNegative(this)" name="userage" id="userage" required></div>
+            <div class="flex-input"><label for="smokingage">At what age did you start smoking?</label>
+                <input name="record[]" type="number" oninput="checkNegative(this)" name="smokingage" id="smokingage" required></div>
+            <div class="flex-input"><label for="average">Average number of cigarettes you smoke in a day</label>
+                <input name="record[]" type="number" oninput="checkNegative(this)" name="average" id="average" required></div>
+            <div class="flex-input"><label for="cost">Cost of a pack of cigarette at your place?</label>
+                <input name="record[]" type="number" oninput="checkNegative(this)" name="cost" id="cost" placeholder="₹" required></div>
+            <div class="flex-input"><label for="total">Total number of cigarettes in one pack</label>
+                <input name="record[]" type="number" oninput="checkNegative(this)" name="total" id="total" placeholder="₹" required></div>
+        </div>
+        <a href="#graph">
+            <div class="submission check">
+                <button type="button" id="add">GENERATE &nbsp; CHART</button>
+            </div>
+        </a>
+    </div>
+    <!-- Third Container -->
+    <div class="summary" id="graph">
+        <div class="sidebar chartjs">
+            <canvas id="smokingData"></canvas>
+        </div>
+        <div class="sidebar chartinfo">
+            <h1 class="analysis">Hi, <span id="user"></span></h1>
+            <p id="details"> Data unavailable. <a href="#questions">Click here</a> to fill your details!</p>
+            <a href="#money">
+                <div class="submission">
+                    <button type="button" id="more">DATA &nbsp; UNAVAILABLE</button>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Fourth Container -->
+    <div class="summary" id="money">
+        <div class="sidebar chartjs">
+            <canvas id="moneyGraph"></canvas>
+        </div>
+        <div class="sidebar chartinfo">
+            <h1 class="analysis">MONEY SPENT</h1>
+            <p id="moneySummary"> Data unavailable. <a href="#questions">Click here</a> to fill your details!</p>
+            <a href="#days">
+                <div class="submission">
+                    <button type="button" id="download">DATA &nbsp; UNAVAILABLE</button>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Fifth Container -->
+    <div class="summary" id="days">
+        <div class="sidebar chartjs">
+            <canvas id="daysGraph"></canvas>
+        </div>
+        <div class="sidebar chartinfo">
+            <h1 class="analysis">HOURS OF SMOKE</span></h1>
+            <p id="daysSummary"> Data unavailable. <a href="#questions">Click here</a> to fill your details!</p>
+            <a href="#questions" id="animate">
+                <div class="submission">
+                    <button type="button" id="zip">DATA &nbsp; UNAVAILABLE</button>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script src="script/index.js"></script>
+</body>
+
+</html>
