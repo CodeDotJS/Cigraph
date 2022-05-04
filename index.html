@@ -5,6 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Days of Smoke. Check how much time you have spent smokeing in your life!">
+    <meta name="keywords" content="cigarettes, cigs, smoke, smoking, smoked, money, spent, spend, expense, average, life, stats, statistics, smoking stat, smoke stat, smoking statistics, calculate, find">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320"> <!-- Social: Facebook / Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://r8w.github.io/cigraph">
+    <meta property="og:title" content="Cigraph - Days of Smoke">
+    <meta property="og:image" content="media/banner.jpg">
+    <meta property="og:description" content="Days of Smoke. Check how much time you have spent smokeing in your life!">
+    <meta property="og:site_name" content="Cigraph">
+    <meta property="og:locale" content="en_US"> <!-- Social: Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="Cigraph">
+    <meta name="twitter:title" content="Cigraph - Days of Smoke">
+    <meta name="twitter:description" content="Days of Smoke. Check how much time you have spent smokeing in your life!">
+    <meta name="twitter:image:src" content="media/banner.jpg">
     <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style/style.css">
     <title>Cigraph | Days of Smoke</title>
@@ -47,6 +63,8 @@
         </a>
     </div>
     <!-- Third Container -->
+
+    <div id="visible">
     <div class="summary" id="graph">
         <div class="sidebar chartjs">
             <canvas id="smokingData"></canvas>
@@ -84,20 +102,32 @@
         <div class="sidebar chartinfo">
             <h1 class="analysis">HOURS OF SMOKE</span></h1>
             <p id="daysSummary"> Data unavailable. <a href="#questions">Click here</a> to fill your details!</p>
-            <a href="#rick" id="animate">
+            <a href="#roll" id="animate">
                 <div class="submission">
                     <button type="button" id="zip">DATA &nbsp; UNAVAILABLE</button>
                 </div>
             </a>
         </div>
     </div>
-    <div class="roll">
-        <div id="rick">
-            <video controls>
-                <source src="media/smoking.mp4" type="video/mp4">
-            </video>
+    <div class="summary" id="final">
+        <div class="sidebar chartjs">
+            <div id="rick">
+                <video controls>
+                    <source src="media/smoking.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="sidebar chartinfo">
+            <h1 class="analysis">TRADITION CONTINUES</span></h1>
+            <p id="videoSummary"> Video unavailable. <a href="#questions">Click here</a> to fill your details!</p>
+            <a href="#" id="roll">
+                <div class="submission">
+                    <button type="button" id="thanks">DATA &nbsp; UNAVAILABLE</button>
+                </div>
+            </a>
         </div>
     </div>
+</div>
     <script src="script/index.js"></script>
 </body>
 
