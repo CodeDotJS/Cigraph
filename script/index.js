@@ -2,7 +2,7 @@ const checkNegative = e => {
     e.value = !!e.value && Math.abs(e.value) >= 0 ? Math.abs(e.value) : null
 }
 
-document.getElementById('rick').style.display = 'none';
+document.getElementById('visible').style.display = 'none';
 
 let gatherData = document.getElementsByName('record[]')
 let addRecord = document.querySelector('#add');
@@ -22,15 +22,9 @@ const barrierBeforeChart = (e) => {
         }
         if (gatherData[i].value.length === 0) {
             gatherData[i].placeholder = "input not valid";
-            document.getElementById('days').style.display = 'none';
-            document.getElementById('graph').style.display = 'none';
-            document.getElementById('money').style.display = 'none';
             e.preventDefault();
         } else {
-            document.getElementById('days').style.display = ''
-            document.getElementById('graph').style.display = ''
-            document.getElementById('money').style.display = '';
-            document.getElementById('rick').style.display = ''
+            document.getElementById('visible').style.display = '';
         }
     }
 }
@@ -148,24 +142,27 @@ const generateChart = () => {
     document.getElementById('more').innerHTML = "NEXT";
     document.getElementById('download').innerHTML = "NEXT";
     document.getElementById('zip').innerHTML = "WATCH THIS VIDEO";
+    document.getElementById('thanks').innerHTML = "DONE!";
 
     document.getElementById('details').innerHTML = `You have lived <span id="user-age">${userAgeInDays} days</span>,
     from which you were clean for <span id="user-clean">${userWasClean} days</span>.
     You started smoking <span id="started-smoking">${userBeenSmoking} days ago</span>,
     and as you mentioned that you smoke around <span id="per-day">${cigsPerDay} cigarettes
     per day</span>, you've smoked approximately <span id="smoke-average">${averageSmoked}
-    cigarettes</span> <span id="life">in your life!`;
+    cigarettes</span> <span id="life">in your life!</span>`;
 
     document.getElementById('moneySummary').innerHTML = `You bought <span id="smoke-average">${averageSmoked} cigarettes</span>,
-    which is equivalent to buying <span id="user-age">${totalPacks} packs</span>.
-     You've spent approximately <span id="user-clean">₹ ${totalMoneySpent}</span> on cigarettes.
-     You've been spending <span id="user-clean">₹ ${averageMoneySpent}</span> per day for the last <span id="user-age">${userBeenSmoking} days</span>.`
+    which is equivalent to buying <span id="user-age">${totalPacks.toFixed(2)} packs</span>.
+     You've spent approximately <span id="user-clean">₹ ${totalMoneySpent.toFixed(2)}</span> on cigarettes.
+     You've been spending <span id="user-clean">₹ ${averageMoneySpent.toFixed(2)}</span> per day for the last <span id="user-age">${userBeenSmoking} days</span>.`
 
     document.getElementById('daysSummary').innerHTML = `<li>So far, you've spent around <span id="user-clean">${totalHoursSpentSmoking.toFixed(2)} hours</span> smoking cigarettes.
-    It would take <span id="user-clean">${(totalHoursSpentSmoking/24).toFixed(2)} days</span> of continuous smoking to finish the amount of cigarettes you've smoked.</li>
+    It would take <span id="user-clean">${(totalHoursSpentSmoking/24).toFixed(2)} days</span> of continuous smoking to finish the number of cigarettes you've smoked.</li>
     <li>You spent approximately <span id="user-age">${totalHoursSpentLighting.toFixed(2)} hours</span> lighting cigarettes.</li>
-    <li>Smoking <span id="smoke-average">${averageSmoked} cigarettes</span> has costed you <span id="smoke-average">${totalLifeReduced} hours</span> of your
+    <li>Smoking <span id="smoke-average">${averageSmoked} cigarettes</span> has cost you <span id="smoke-average">${totalLifeReduced.toFixed(2)} hours</span> of your
     life which is equal to <span id="smoke-average"> ${daysReduced.toFixed(2)} days!</span></li>`;
+
+    document.getElementById('videoSummary').innerHTML = `Since you're here, you should check <a href="https://www.goodreads.com/en/book/show/6618.The_Easy_Way_to_Stop_Smoking">this book.</a> Things might work for you. Who knows?`;
 };
 
 addRecord.addEventListener('click', barrierBeforeChart);
