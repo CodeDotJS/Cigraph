@@ -2,7 +2,7 @@
 
 __*Days of Smoke*__
 
-- [Preview](https://r8w.github.io/cigraph)
+- [Preview](https://cigraph.vercel.app/)
 
 ---
 
@@ -18,4 +18,3 @@ I don't know what's the use of this project for others, but hopefully it could b
 
 MIT -- Copyright &copy; [Rishi Giri](https://rishi.ml)
 
-<small><i>You can do whatever you want to do with the code.</i></small>
