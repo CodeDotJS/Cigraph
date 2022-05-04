@@ -2,6 +2,8 @@ const checkNegative = e => {
     e.value = !!e.value && Math.abs(e.value) >= 0 ? Math.abs(e.value) : null
 }
 
+document.getElementById('rick').style.display = 'none';
+
 let gatherData = document.getElementsByName('record[]')
 let addRecord = document.querySelector('#add');
 
@@ -28,13 +30,10 @@ const barrierBeforeChart = (e) => {
             document.getElementById('days').style.display = ''
             document.getElementById('graph').style.display = ''
             document.getElementById('money').style.display = '';
+            document.getElementById('rick').style.display = ''
         }
     }
 }
-
-const round = arg => {
-    return Math.round(arg);
-};
 
 const generateChart = () => {
     let chartStatus = Chart.getChart("smokingData");
@@ -51,12 +50,12 @@ const generateChart = () => {
     const ftx = document.getElementById('moneyGraph').getContext('2d');
     const mtx = document.getElementById('daysGraph').getContext('2d');
 
-    const userAgeInDays = gatherData[1].value * 365;
-    const userWasClean = gatherData[2].value * 365;
-    const cigsPerDay = gatherData[3].value;
-    const cigarettePackCost = gatherData[4].value;
-    const cigarettePackSize = gatherData[5].value;
-    const userBeenSmoking = userAgeInDays - gatherData[2].value * 365;
+    const userAgeInDays = stringToNumber(gatherData[1].value) * 365;
+    const userWasClean = stringToNumber(gatherData[2].value) * 365;
+    const cigsPerDay = stringToNumber(gatherData[3].value);
+    const cigarettePackCost = stringToNumber(gatherData[4].value);
+    const cigarettePackSize = stringToNumber(gatherData[5].value);
+    const userBeenSmoking = userAgeInDays - stringToNumber(gatherData[2].value) * 365;
     const averageSmoked = cigsPerDay * userBeenSmoking;
     const totalPacks = averageSmoked / cigarettePackSize;
     const totalMoneySpent = averageSmoked * (cigarettePackCost / cigarettePackSize);
@@ -148,8 +147,7 @@ const generateChart = () => {
     document.getElementById('user').innerHTML = userName;
     document.getElementById('more').innerHTML = "NEXT";
     document.getElementById('download').innerHTML = "NEXT";
-    document.getElementById('zip').innerHTML = "WATCH THIS ANIMATION";
-    document.getElementById('animate').href = "media/smoking.mp4";
+    document.getElementById('zip').innerHTML = "WATCH THIS VIDEO";
 
     document.getElementById('details').innerHTML = `You have lived <span id="user-age">${userAgeInDays} days</span>,
     from which you were clean for <span id="user-clean">${userWasClean} days</span>.
@@ -158,14 +156,16 @@ const generateChart = () => {
     per day</span>, you've smoked approximately <span id="smoke-average">${averageSmoked}
     cigarettes</span> <span id="life">in your life!`;
 
-    document.getElementById('moneySummary').innerHTML = `You bought <span id="smoke-average">${averageSmoked} cigarettes</span>, which is equivalent to buying <span id="user-age">${round(totalPacks)} packs</span>.
-     You've spent approximately <span id="user-clean">₹ ${round(totalMoneySpent)}</span> on cigarettes.
-     You've been spending <span id="user-clean">₹ ${round(averageMoneySpent)}</span> per day for the last <span id="user-age">${userBeenSmoking} days</span>.`
+    document.getElementById('moneySummary').innerHTML = `You bought <span id="smoke-average">${averageSmoked} cigarettes</span>,
+    which is equivalent to buying <span id="user-age">${totalPacks} packs</span>.
+     You've spent approximately <span id="user-clean">₹ ${totalMoneySpent}</span> on cigarettes.
+     You've been spending <span id="user-clean">₹ ${averageMoneySpent}</span> per day for the last <span id="user-age">${userBeenSmoking} days</span>.`
 
-    document.getElementById('daysSummary').innerHTML = `<li>So far, you've spent around <span id="user-age">${round(totalHoursSpentSmoking)} hours</span> smoking cigarettes.
-    It would take <span id="user-age">${round(totalHoursSpentSmoking/24)} days</span> of continuous smoking to finish the amount of cigarettes you've smoked.</li>
-    <li>You spent approximately <span id="user-clean">${totalHoursSpentLighting.toFixed(2)} hours</span> lighting cigarettes.</li>
-    <li>Smoking <span id="smoke-average">${averageSmoked} cigarettes</span> has costed you <span id="smoke-average">${round(totalLifeReduced)} hours</span> of your life which is equal to <span id="smoke-average">~${round(daysReduced)} days!</span></li>`;
+    document.getElementById('daysSummary').innerHTML = `<li>So far, you've spent around <span id="user-clean">${totalHoursSpentSmoking.toFixed(2)} hours</span> smoking cigarettes.
+    It would take <span id="user-clean">${(totalHoursSpentSmoking/24).toFixed(2)} days</span> of continuous smoking to finish the amount of cigarettes you've smoked.</li>
+    <li>You spent approximately <span id="user-age">${totalHoursSpentLighting.toFixed(2)} hours</span> lighting cigarettes.</li>
+    <li>Smoking <span id="smoke-average">${averageSmoked} cigarettes</span> has costed you <span id="smoke-average">${totalLifeReduced} hours</span> of your
+    life which is equal to <span id="smoke-average"> ${daysReduced.toFixed(2)} days!</span></li>`;
 };
 
 addRecord.addEventListener('click', barrierBeforeChart);
