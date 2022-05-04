@@ -12,15 +12,22 @@ const stringToNumber = n => {
 const barrierBeforeChart = (e) => {
     const count = gatherData.length;
     for (var i = 0; i < count; i++) {
-        if (stringTo(gatherData[2].value) > stringTo(gatherData[1].value)) {
+        if (stringToNumber(gatherData[2].value) > stringToNumber(gatherData[1].value)) {
             gatherData[2].value = '';
         }
-        if (stringTo(gatherData[5].value) > stringTo(gatherData[4].value)) {
+        if (stringToNumber(gatherData[5].value) > stringToNumber(gatherData[4].value)) {
             gatherData[5].value = '';
         }
         if (gatherData[i].value.length === 0) {
             gatherData[i].placeholder = "input not valid";
+            document.getElementById('days').style.display = 'none';
+            document.getElementById('graph').style.display = 'none';
+            document.getElementById('money').style.display = 'none';
             e.preventDefault();
+        } else {
+            document.getElementById('days').style.display = ''
+            document.getElementById('graph').style.display = ''
+            document.getElementById('money').style.display = '';
         }
     }
 }
@@ -100,7 +107,7 @@ const generateChart = () => {
             }]
         },
         options: {
-        	plugins: globalPlugin
+            plugins: globalPlugin
         }
     });
 
@@ -117,7 +124,7 @@ const generateChart = () => {
             }]
         },
         options: {
-        	plugins: globalPlugin
+            plugins: globalPlugin
         }
     });
 
@@ -157,7 +164,7 @@ const generateChart = () => {
 
     document.getElementById('daysSummary').innerHTML = `<li>So far, you've spent around <span id="user-age">${round(totalHoursSpentSmoking)} hours</span> smoking cigarettes.
     It would take <span id="user-age">${round(totalHoursSpentSmoking/24)} days</span> of continuous smoking to finish the amount of cigarettes you've smoked.</li>
-    <li>You spent approximately <span id="user-clean">${round(totalHoursSpentLighting)} hours</span> lighting cigarettes.</li>
+    <li>You spent approximately <span id="user-clean">${totalHoursSpentLighting.toFixed(2)} hours</span> lighting cigarettes.</li>
     <li>Smoking <span id="smoke-average">${averageSmoked} cigarettes</span> has costed you <span id="smoke-average">${round(totalLifeReduced)} hours</span> of your life which is equal to <span id="smoke-average">~${round(daysReduced)} days!</span></li>`;
 };
 
