@@ -1,20 +1,27 @@
 # :hourglass_flowing_sand: Cigraph
 
-__*Days of Smoke*__
-
-- [Preview](https://cigraph.vercel.app/)
+__*Days of Smoke*__ - [Preview](https://cigraph.vercel.app/)
 
 ---
 
-### About
+### Why
 
-I didn't had any solid reason to built it, but the work is based on the blog I wrote around four years ago. You can read it [here](https://rishi.ml/2018/smoking/).
+I didn't have any solid reasons to build it, but the work is a by-product of the blog post I wrote four years ago. You can read it here.
 
-The initial and the only goal was to calculate the amount of time I've spent smoking cigarettes, but I added a few more sections which calculates the money that's been spent, total numbers of cigarettes throughout the smoking period etc.
+### And
 
-I don't know what's the use of this project for others, but hopefully it could be of some use.
+__*Cigraph* is a simple tool that calculates -__
+
+- The total number of cigarettes you've smoked throughout your smoking period.
+- The time you've consumed smoking cigarettes - in days and hours.
+- The total amount of money you've spent.
+- The average sum of money you've been spending etc.
+
+The tool is simple, but I built it anyway. The stats made me think.
+
+---
 
 ### License
 
-MIT -- Copyright &copy; [Rishi Giri](https://rishi.ml)
+MIT - Copyright &copy; [Rishi Giri](https://rishi.ml)
 
